@@ -1,2 +1,0 @@
-let intentos = 0;
-

@@ -14,12 +14,6 @@ body {
 }
 
 .a-logo {
-    grid-area: 1 / 1 / 2 / 5; 
-
-    width: 100%;
-}
-
-.a-logo img {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -34,13 +28,13 @@ body {
 .ahorcado {
     grid-area: 2 / 2 / 3 / 4; 
 
-    margin: 5px auto;
+    margin: 10px auto;
 }
 
 .guessLetters{
     grid-area: 3 / 2 / 4 / 4;
 
-    margin: 5px auto;
+    margin: 10px auto;
 }
 
 .guessLetters td {
@@ -61,7 +55,9 @@ body {
 
 .lettersNotGuessed {
     grid-area: 4 / 2 / 5 / 4; 
+}
 
+.lettersNotGuessed p {
     margin: 10px auto;
 
     height: 36px;
