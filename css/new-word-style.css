@@ -1,11 +1,11 @@
-/* * {
+* {
     border: 1px solid red !important;
-} */
+}
 
 body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: 142px repeat(3, 1fr) 142px;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
 
@@ -17,6 +17,10 @@ body {
 .a-logo {
     grid-area: 1 / 1 / 2 / 5;
 
+    width: 100%;
+}
+
+.a-logo img {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
