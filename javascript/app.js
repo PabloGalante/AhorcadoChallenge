@@ -26,9 +26,6 @@ function charIsLetter(char) {
 
 /* REINICIAR JUEGO */
 function reiniciarJuego(){
-    if( words.length == 0 ){
-        letrasRestantes.innerHTML = 'Agregue al menos 1 palabra';
-    } else {
         pincelAhorcado.clearRect(0, 0, canvasAhorcado.width, canvasAhorcado.height);
 
         while (tabla.hasChildNodes()) {
@@ -44,5 +41,4 @@ function reiniciarJuego(){
         random();
     
         drawWord(randomWord);
-    }
 }

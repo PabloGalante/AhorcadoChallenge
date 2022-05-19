@@ -5,6 +5,11 @@ const fragment = new DocumentFragment();
 const botonNuevoJuego = document.getElementById('boton-nuevo-juego');
 const letrasRestantes = document.getElementById("otherLetters");
 
+/* MENSAJE AGREGUE AL MENOS UNA PALABRA SI ARRAY VACIO */
+if(words == null){
+    letrasRestantes.innerHTML = 'Agregue al menos una palabra';
+}
+
 /* FUNCION DEVUELVE PALABRA AL AZAR DEL ARRAY */
 const random = () => {
     let randomNumber = Math.floor(Math.random() * words.length);
@@ -72,6 +77,3 @@ document.onkeydown = async (e) => {
 /* INCIIAR JUEGO POR PRIMERA VEZ */
 random();
 drawWord(randomWord);
-
-/* MENSAJE SI NO SE AGREGO PALABRA */
-words.length == 0 ? letrasRestantes.innerHTML = 'Agregue al menos 1 palabra' : null;
