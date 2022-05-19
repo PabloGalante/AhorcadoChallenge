@@ -1,3 +1,10 @@
+/* TABLA AHORCADO */
+const tabla = document.getElementById('tablaPalabra');
+const data = document.createElement("td");
+const fragment = new DocumentFragment();
+const botonNuevoJuego = document.getElementById('boton-nuevo-juego');
+const letrasRestantes = document.getElementById("otherLetters");
+
 /* FUNCION DEVUELVE PALABRA AL AZAR DEL ARRAY */
 const random = () => {
     let randomNumber = Math.floor(Math.random() * words.length);
@@ -30,7 +37,8 @@ document.onkeydown = async (e) => {
         } else {
             /* ANALIZA SI LA TECLA ES VALIDA */
             if(charIsLetter(e.key)){
-                let upperKey = e.key.toString();
+                let keyString = e.key.toString();
+                let upperKey = keyString.toUpperCase();
 
                 /* SI TECLA ESTA EN PALABRA SECRETA */
                 if(randomWord.includes(upperKey)){
@@ -38,7 +46,7 @@ document.onkeydown = async (e) => {
                     for(let i = 0; i < randomWord.length; i++){
             
                         if(upperKey == randomWord[i]){
-                            document.getElementById('letter' + i.toString()).innerHTML = upperKey.toUpperCase();
+                            document.getElementById('letter' + i.toString()).innerHTML = upperKey;
                             wordGuess++;
                             wordGuess == randomWord.length ? drawWin() : null;
                         }

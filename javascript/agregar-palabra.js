@@ -1,6 +1,8 @@
 /* TEXTO AGREGAR PALABRAS */
 const textarea = document.getElementById("textarea-palabra");
 
+let arrayOfWords = [];
+
 /* FUNCION AGREGAR PALABRA */
 function addWord(){
     let inputWord = textarea.value.toUpperCase();
@@ -9,7 +11,9 @@ function addWord(){
     if(words.includes(inputWord)){
         alert('Palabra ya incluida');
     }else {
-        words.push(inputWord);
+        arrayOfWords.push(inputWord);
+        localStorage.setItem('array', JSON.stringify(arrayOfWords));
+        words = JSON.parse(localStorage.getItem('array'));
     }
 
     textarea.value = '';

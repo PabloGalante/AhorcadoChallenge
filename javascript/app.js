@@ -1,14 +1,3 @@
-/* VARIABLES ANCLAS AL HTML */
-    /* TABLA AHORCADO */
-const tabla = document.getElementById('tablaPalabra');
-const data = document.createElement("td");
-const fragment = new DocumentFragment();
-const botonNuevoJuego = document.getElementById('boton-nuevo-juego');
-const letrasRestantes = document.getElementById("otherLetters");
-
-/* ALMACEN DE PALABRAS */
-let words = [];
-
 /* CONTADOR DE LETRAS ADIVINADAS */
 let wordGuess = 0;
 
@@ -20,6 +9,9 @@ let randomWord;
 
 /* ALMACEN DE LETRAS QUE NO ESTA EN JUEGO */
 let alreadyPressed = [];
+
+/* ALMACEN DE PALABRAS */
+let words = JSON.parse(localStorage.getItem('array'));
 
 /* VERIFICAR QUE TECLA SEA A-Z */
 function charIsLetter(char) {
