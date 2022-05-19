@@ -32,7 +32,11 @@ function reiniciarJuego(){
             tabla.removeChild(tabla.firstChild);
         }
     
-        letrasRestantes.innerHTML = '';
+        if(words == null){
+            letrasRestantes.innerHTML = 'Agregue al menos una palabra';
+        } else {
+            letrasRestantes.innerHTML = '';
+        }
     
         alreadyPressed = [];
         intentos = 0;
