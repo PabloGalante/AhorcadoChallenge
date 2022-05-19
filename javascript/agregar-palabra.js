@@ -7,13 +7,16 @@ let arrayOfWords = [];
 function addWord(){
     let inputWord = textarea.value.toUpperCase();
 
+    sessionStorage.setItem('array', JSON.stringify(arrayOfWords));
+    words = JSON.parse(sessionStorage.getItem('array'));
+    
     /* CHEQUEA SI LA PALABRA YA FUE INCLUIDA */
     if(words.includes(inputWord)){
         alert('Palabra ya incluida');
     }else {
         arrayOfWords.push(inputWord);
-        localStorage.setItem('array', JSON.stringify(arrayOfWords));
-        words = JSON.parse(localStorage.getItem('array'));
+        sessionStorage.setItem('array', JSON.stringify(arrayOfWords));
+        words = JSON.parse(sessionStorage.getItem('array'));
     }
 
     textarea.value = '';

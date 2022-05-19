@@ -11,7 +11,7 @@ let randomWord;
 let alreadyPressed = [];
 
 /* ALMACEN DE PALABRAS */
-let words = JSON.parse(localStorage.getItem('array'));
+let words = JSON.parse(sessionStorage.getItem('array'));
 
 /* VERIFICAR QUE TECLA SEA A-Z */
 function charIsLetter(char) {
