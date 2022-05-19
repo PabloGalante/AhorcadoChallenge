@@ -1,9 +1,6 @@
 /* CANVAS SCRIPT */
-
 const canvasAhorcado = document.getElementById("myCanvas");
 const pincelAhorcado = canvasAhorcado.getContext("2d");
-
-let intentos = 0;
 
 /* FUNCION DIBUJA LINEA */
 function drawLine(xi,yi,xf,yf){
@@ -26,6 +23,28 @@ function drawHead(){
     pincelAhorcado.lineJoin = "round";
     pincelAhorcado.arc(240, 85, 30, 0, 2 * Math.PI);
     pincelAhorcado.lineWidth = 6;
+    pincelAhorcado.stroke();
+    pincelAhorcado.closePath();
+}
+
+/* DIBUJAR MENSAJE GANADOR */
+function drawWin(){
+    pincelAhorcado.beginPath();
+    pincelAhorcado.font = "30px Inter";
+    pincelAhorcado.fillStyle = "green";
+    pincelAhorcado.textAlign = "center";
+    pincelAhorcado.fillText("GANASTE!", canvasAhorcado.width/2, 410);
+    pincelAhorcado.stroke();
+    pincelAhorcado.closePath();
+}
+
+/* DIBUJAR MENSAJE PERDEDOR */
+function drawLose(){
+    pincelAhorcado.beginPath();
+    pincelAhorcado.font = "30px Inter";
+    pincelAhorcado.fillStyle = "red";
+    pincelAhorcado.textAlign = "center";
+    pincelAhorcado.fillText("FIN DEL JUEGO", canvasAhorcado.width/2, 410);
     pincelAhorcado.stroke();
     pincelAhorcado.closePath();
 }
@@ -80,7 +99,7 @@ const drawing = async (intento) => {
         /* PIERNA DER */
         case 10:
         drawLine(240, 245, 270, 310);
-        alert('You lose!');
+        drawLose();
         break;
     }
 }

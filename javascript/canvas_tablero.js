@@ -1,14 +1,3 @@
-const tabla = document.getElementById('tablaPalabra');
-const data = document.createElement("td");
-const fragment = new DocumentFragment();
-const botonNuevoJuego = document.getElementById('boton-nuevo-juego');
-const letrasRestantes = document.getElementById("otherLetters");
-
-let words = ['h', 'ho', 'hol', 'hola'];
-let randomWord;
-
-let alreadyPressed = [];
-
 /* FUNCION DEVUELVE PALABRA AL AZAR DEL ARRAY */
 const random = () => {
     let randomNumber = Math.floor(Math.random() * words.length);
@@ -28,67 +17,53 @@ function drawWord(word){
     tabla.appendChild(fragment);
 }
 
-/* VERIFICAR QUE SEA A-Z */
-function charIsLetter(char) {
-    const regex = /\b[a-z]/;
-
-    if (!regex.test(char)) {
-      return false;
-    }
-  
-    return regex.test(char);
-}
-
 /* EVENTO APRETAR TECLA */
 document.onkeydown = async (e) => {
 
-    if(alreadyPressed.includes(e.key)){
-        alert('Use another letter');
+    /* ANALIZA SI YA TERMINO EL JUEGO */
+    if(wordGuess == randomWord.length || intentos == 10){
+        alert('Inicie un nuevo juego, este ya ha concluido!')
     } else {
-        if(charIsLetter(e.key)){
-            let upperKey = e.key.toString();
-
-            if(randomWord.includes(upperKey)){
-
-                for(let i = 0; i < randomWord.length; i++){
-        
-                    if(upperKey == randomWord[i]){
-                        document.getElementById('letter' + i.toString()).innerHTML = upperKey.toUpperCase();
-                    }
-            
-                }
-
-            } else {
-                const textToAdd = document.createTextNode(upperKey.toUpperCase());
-                letrasRestantes.appendChild(textToAdd);
-                intentos++;
-                drawing(intentos);
-            }
-
-            alreadyPressed.push(e.key);
+    /* ANALIZA SI LA TECLA YA FUE APRETADA */
+        if(alreadyPressed.includes(e.key)){
+            alert('Use another letter');
         } else {
-                alert('Not a char');
+            /* ANALIZA SI LA TECLA ES VALIDA */
+            if(charIsLetter(e.key)){
+                let upperKey = e.key.toString();
+
+                /* SI TECLA ESTA EN PALABRA SECRETA */
+                if(randomWord.includes(upperKey)){
+
+                    for(let i = 0; i < randomWord.length; i++){
+            
+                        if(upperKey == randomWord[i]){
+                            document.getElementById('letter' + i.toString()).innerHTML = upperKey.toUpperCase();
+                            wordGuess++;
+                            wordGuess == randomWord.length ? drawWin() : null;
+                        }
+                
+                    }
+                /* SI TECLA NO ESTA EN PALABRA SECRETA */
+                } else {
+                    const textToAdd = document.createTextNode(upperKey.toUpperCase());
+                    letrasRestantes.appendChild(textToAdd);
+                    intentos++;
+                    drawing(intentos);
+                }
+                /* AGREGAR TECLA A ARRAY DE TECLAS YA PRESIONADAS */
+                alreadyPressed.push(e.key);
+            /* SI YA TOCARON LA TECLA */
+            } else {
+                    alert('Not a char');
+            }
         }
     }
 }
 
+/* INCIIAR JUEGO POR PRIMERA VEZ */
 random();
 drawWord(randomWord);
 
-botonNuevoJuego.onclick = () => { 
-
-    pincelAhorcado.clearRect(0, 0, canvasAhorcado.width, canvasAhorcado.height);
-
-    while (tabla.hasChildNodes()) {
-        tabla.removeChild(tabla.firstChild);
-    }
-
-    letrasRestantes.innerHTML = '';
-
-    alreadyPressed = [];
-    intentos = 0;
-
-    random();
-
-    drawWord(randomWord);
-};
+/* MENSAJE SI NO SE AGREGO PALABRA */
+words.length == 0 ? letrasRestantes.innerHTML = 'Agregue al menos 1 palabra' : null;

@@ -11,12 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <title>Ahorcado</title>
+
+    <script type="text/javascript" src="../javascript/app.js"></script>
 </head>
 <body>
-
     <a href="../index.html" class="a-logo"><img src="../resources/img/Logo.svg" alt="Logo Alura"/></a>
 
-    <textarea type="text" placeholder="Ingrese una palabra" class="input-texto" maxlength="8"></textarea>
+    <textarea type="text" placeholder="Ingrese una palabra" class="input-texto" id="textarea-palabra" maxlength="8"></textarea>
 
     <section class="section-buttons">
         <div class="warning">
@@ -25,10 +26,10 @@
         </div>
     
         <div class="botones">
-            <button class="boton-guardar" onclick="location.href='./game.html';"><span>Guardar y empezar</span></button>
-            <button class="boton-cancelar" onclick="location.href='../index.html';"><span>Cancelar</span></button>
+            <button class="boton-guardar" onclick="addWord()"><span>Guardar palabra</span></button>
+            <button class="boton-cancelar" onclick="goBack()"><span>Ir al inicio</span></button>
         </div>
     </section>
 
-    <script type="text/javascript" src="../javascript/app.js"></script>
+    <script type="text/javascript" src="../javascript/agregar-palabra.js"></script>
 </body>

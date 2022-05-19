@@ -11,12 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <title>Ahorcado</title>
+
+    <script type="text/javascript" src="../javascript/app.js"></script>
 </head>
 <body>
 
     <a href="../index.html" class="a-logo"><img src="../resources/img/Logo.svg" alt="Logo Alura"/></a>
 
-    <canvas class="ahorcado" id="myCanvas" width="300px" height="360px"></canvas>
+    <canvas class="ahorcado" id="myCanvas" width="300px" height="460px"></canvas>
 
     <table class="guessLetters" id="tablaPalabra">
     </table>
@@ -26,12 +28,11 @@
     <div class="lettersNotGuessed"><p id="otherLetters"></p></div>
 
     <div class="botones">
-        <button class="boton-nuevo" id="boton-nuevo-juego"><span>Nuevo Juego</span></button>
-        <button class="boton-desistir" id="boton-desistir-juego"><span>Desistir</span></button>
+        <button class="boton-nuevo" id="boton-nuevo-juego" onclick="reiniciarJuego()"><span>Nuevo Juego</span></button>
+        <button class="boton-desistir" id="boton-desistir-juego" onclick="location.href='../index.html';"><span>Desistir</span></button>
     </div>
 
-    <script type="text/javascript" src="../javascript/app.js"></script>
-    <script type="text/javascript" src="../javascript/canvas_tablero.js"></script>
     <script type="text/javascript" src="../javascript/canvas_ahorcado.js"></script>
+    <script type="text/javascript" src="../javascript/canvas_tablero.js"></script>
 
 </body>
