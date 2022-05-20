@@ -3,6 +3,8 @@ const textarea = document.getElementById("textarea-palabra");
 
 let arrayOfWords = [];
 
+sessionStorage.setItem('array', JSON.stringify(arrayOfWords));
+
 /* FUNCION AGREGAR PALABRA */
 function addWord(){
     let inputWord = textarea.value.toUpperCase();
