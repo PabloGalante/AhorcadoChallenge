@@ -24,6 +24,17 @@ function charIsLetter(char) {
     return regex.test(char);
 }
 
+/* VERIFICAR ESPACIO EN BLANCO */
+function isWhitespace(char) {
+    const regex = /\s[^a-zA-Z]/g;
+
+    if (!regex.test(char)) {
+      return false;
+    }
+  
+    return regex.test(char);
+}
+
 /* REINICIAR JUEGO */
 function reiniciarJuego(){
         pincelAhorcado.clearRect(0, 0, canvasAhorcado.width, canvasAhorcado.height);

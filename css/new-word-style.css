@@ -16,8 +16,6 @@ body {
 
 .a-logo {
     grid-area: 1 / 1 / 2 / 5;
-
-    width: 100%;
 }
 
 .a-logo img {
@@ -96,6 +94,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-content: space-around;
+    flex-wrap: wrap;
 }
 
 .boton-guardar {
@@ -162,4 +161,35 @@ body {
     font-size: 1rem;
     line-height: 1.3rem;
     text-align: center;
+}
+
+@media (max-width: 480px){
+    body{
+        display: grid;
+        grid-template-columns: 100vw;
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+    }
+
+    .a-logo{
+        grid-area: 1 / 1 / 2 / 2;
+
+        margin: 20px;
+    }
+
+    .input-texto{
+        grid-area: 2 / 1 / 3 / 2; 
+
+        margin: 30px auto;
+    }
+
+    .section-buttons{
+        grid-area: 3 / 1 / 4 / 2; 
+    }
+
+    .boton-guardar,
+    .boton-cancelar{
+        width: 100%;
+    }
 }
