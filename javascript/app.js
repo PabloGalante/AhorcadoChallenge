@@ -26,12 +26,12 @@ function charIsLetter(char) {
 
 /* VERIFICAR ESPACIO EN BLANCO */
 function isWhitespace(char) {
-    const regex = /\s[^a-zA-Z]/g;
+    const regex = /[^a-zA-Z]+/;
 
     if (!regex.test(char)) {
       return false;
     }
-  
+
     return regex.test(char);
 }
 
