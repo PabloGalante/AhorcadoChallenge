@@ -169,8 +169,12 @@ body {
         grid-row-gap: 5px;
     }
 
-    .a-logo{
-        margin: 20px;
+    .a-logo,
+    .a-logo img{
+        margin: 0;
+
+        width: auto;
+        height: auto;
     }
 
     .ahorcado{
@@ -182,7 +186,7 @@ body {
 
         display: block;
 
-        margin: 0 auto;
+        margin: 10px auto 0;
 
         border: 1px solid black;
 
@@ -218,6 +222,8 @@ body {
         grid-area: 6 / 1 / 7 / 2;
 
         width: 100vw;
+
+        margin-bottom: 10px;
     }
 
     .boton-nuevo,
@@ -236,8 +242,12 @@ body {
         grid-row-gap: 5px;
     }
 
-    .a-logo{
-        margin: 20px;
+    .a-logo,
+    .a-logo img{
+        margin: 0px;
+
+        width: auto;
+        height: auto;
     }
 
     .ahorcado{
@@ -249,7 +259,7 @@ body {
 
         display: block;
 
-        margin: 0 auto;
+        margin: 10px auto 0;
 
         border: 1px solid black;
 
@@ -283,6 +293,8 @@ body {
 
     .botones{
         grid-area: 6 / 1 / 7 / 2;
+
+        margin-bottom: 10px;
     }
 
     .boton-nuevo,
