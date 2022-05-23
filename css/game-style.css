@@ -25,6 +25,14 @@ body {
     height: 3.5rem;
 }
 
+.a-logo img{
+    padding: 0px;
+    margin: 40px;
+
+    width: 7.5rem;
+    height: 3.5rem;
+}
+
 .ahorcado {
     grid-area: 2 / 2 / 3 / 4; 
 
