@@ -1,27 +1,29 @@
 /* TEXTO AGREGAR PALABRAS */
 const textarea = document.getElementById("textarea-palabra");
 
-let arrayOfWords = [];
-
-sessionStorage.setItem('array', JSON.stringify(arrayOfWords));
+let arrayOfWords;
 
 /* FUNCION AGREGAR PALABRA */
 function addWord(){
     let inputWord = textarea.value.toUpperCase();
 
-    sessionStorage.setItem('array', JSON.stringify(arrayOfWords));
-
     /* CHEQUEA SI LA PALABRA TIENE CARACTERES NO PERMITIDOS */
     if(!isWhitespace(inputWord)){
+
+        if(words == null){
+            words = [];
+        }
+
         /* CHEQUEA SI LA PALABRA YA FUE INCLUIDA */
-        if(words.includes(inputWord)){
-            alert('Palabra ya incluida');
-        }else {
+        if(!words.includes(inputWord)){
             arrayOfWords = [...words];
             arrayOfWords.push(inputWord);
             sessionStorage.setItem('array', JSON.stringify(arrayOfWords));
-            words = JSON.parse(sessionStorage.getItem('array'));
+            words = JSON.parse(sessionStorage.getItem('array')); 
+        }else {
+            alert('Palabra ya incluida');
         }
+
     } else {
         alert('CUIDADO! No se aceptan espacios ni caracteres especiales')
     }

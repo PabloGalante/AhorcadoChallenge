@@ -1,3 +1,6 @@
+/* ALMACEN DE PALABRAS */
+let words = JSON.parse(sessionStorage.getItem('array'));
+
 /* CONTADOR DE LETRAS ADIVINADAS */
 let wordGuess = 0;
 
@@ -9,9 +12,6 @@ let randomWord;
 
 /* ALMACEN DE LETRAS QUE NO ESTA EN JUEGO */
 let alreadyPressed = [];
-
-/* ALMACEN DE PALABRAS */
-let words = JSON.parse(sessionStorage.getItem('array'));
 
 /* VERIFICAR QUE TECLA SEA A-Z */
 function charIsLetter(char) {
