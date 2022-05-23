@@ -14,14 +14,16 @@ body {
 
 }
 
-.a-logo {
-    grid-area: 1 / 1 / 2 / 5;
-}
-
-.a-logo img {
+.a-logo{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    height: 7.5rem;
+    width: 3.5rem;
+}
+
+.a-logo img{
 
     padding: 0px;
     margin: 40px;
